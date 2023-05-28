@@ -15,6 +15,6 @@ Postman: Postman is a popular API development and testing tool. It allows you to
 
 The project follows REST architectural principles and implements various CRUD (Create, Read, Update, Delete) operations for managing students. It provides endpoints for retrieving all students, filtering students based on criteria like mark, id, and name, and creating new students.
 
-By using Spring Boot, you benefit from features like dependency management, auto-configuration, and embedded server support. The application is deployed on a local server, and you can interact with it through HTTP requests.
+By using Spring Boot, take advantage of features such as dependency management, auto-configuration, and embedded server support. The application is deployed on a local server and you can interact with it through HTTP requests.
 
 Overall, the student-grid-system-RestAPI-project aims to provide a flexible and scalable solution for managing student data through a RESTful API, facilitating efficient student grid system management.
