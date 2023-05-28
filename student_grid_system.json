@@ -1,0 +1,233 @@
+The project is a student-grid-system REST API developed in Java using IntelliJ IDEA and Spring Boot. 
+It utilizes MySQL as the database and Postman for testing the API endpoints.
+
+To insert data into the database, you make a POST request to http://localhost:8080/api/students.
+The request body is a JSON object containing the student's name and total marks.
+The ID is automatically generated since it is marked with @Id and @GeneratedValue(strategy = GenerationType.IDENTITY).
+
+Example JSON Formate
+{
+        "name": "kinara",
+        "totalMarks": "95"
+}
+
+................................................................................................................................
+To retrieve the student records with pagination, you make a GET request to http://localhost:8080/api/students.
+The response contains the student records in pagination format. 
+It includes an array of totalMarks objects, representing 
+the students' information, along with additional metadata such as pageNo, pageSize, totalElements, totalPage, and last.
+
+
+{
+    "totalMarks": [
+        {
+            "id": 1,
+            "name": "Jason",
+            "totalMarks": 0
+        },
+        {
+            "id": 2,
+            "name": "aranav",
+            "totalMarks": 0
+        },
+        {
+            "id": 3,
+            "name": "parag",
+            "totalMarks": 65
+        },
+        {
+            "id": 4,
+            "name": "akshay",
+            "totalMarks": 65
+        },
+        {
+            "id": 5,
+            "name": "shubham",
+            "totalMarks": 65
+        },
+        {
+            "id": 6,
+            "name": "shubhu",
+            "totalMarks": 75
+        },
+        {
+            "id": 7,
+            "name": "shakshi",
+            "totalMarks": 75
+        },
+        {
+            "id": 8,
+            "name": "sameer",
+            "totalMarks": 12
+        },
+        {
+            "id": 9,
+            "name": "priyanka",
+            "totalMarks": 92
+        },
+        {
+            "id": 10,
+            "name": "shivam",
+            "totalMarks": 52
+        }
+      
+    ],
+  
+    "pageNo": 0, .................."pageNo": 0: This field indicates the current page number. 
+                                                 in this case, 0 represents the first page.
+    "pageSize": 10,................"pageSize": 10: The pageSize specifies the number of records displayed per page.
+                                                   in this example, each page contains 10 records.
+
+    "totalElements": 47,.........."totalElements": 47: This field denotes the total number of available records in the database. 
+                                                        in this case, there are 47 records.
+  
+    "totalPage": 5, ,.............."totalPage": 5: The totalPage signifies the total number of pages needed to
+                                                   display all the records based on the defined pageSize.
+                                                   in this scenario, there are 5 pages in total.
+  
+    "last": false..................."last": false: This boolean value indicates whether the current page is the last page or not. 
+    }                                              if the value is true, it means it is the last page. In this case,
+                                                   false indicates that it is not the last page.
+
+.....................................................................................................................................................................................
+To filter records based on ID, you make a GET request to http://localhost:8080/api/students/filter?id=46.
+The response contains an array of student objects matching the specified ID.
+[
+    {
+        "id": 46,
+        "name": "kinara",
+        "totalMarks": 95
+    }
+]
+
+...............................................................................................................................................................................................................
+To filter records based on name, you make a GET request to http://localhost:8080/api/students/filter?name=kinara.
+The response contains an array of student objects matching the specified name.
+[
+    {
+        "id": 46,
+        "name": "kinara",
+        "totalMarks": 95
+    }
+]
+
+............................................................................................................................
+
+To filter records based on mark, you make a GET request to http://localhost:8080/api/students/filter?mark=92. 
+The response contains an array of student objects matching the specified mark.
+
+[
+    {
+        "id": 9,
+        "name": "priyanka",
+        "totalMarks": 92
+    }
+]
+
+............................................................................................................................
+To retrieve a specific number of records in ascending order,
+you make a GET request to http://localhost:8080/api/students?pageNo=0&pageSize=5&sortBy&sortDir=Asc.
+The response contains the requested number of student records in ascending order.
+
+{
+    "totalMarks": [
+        {
+            "id": 1,
+            "name": "Jason",
+            "totalMarks": 0
+        },
+        {
+            "id": 2,
+            "name": "aranav",
+            "totalMarks": 0
+        },
+        {
+            "id": 3,
+            "name": "parag",
+            "totalMarks": 65
+        },
+        {
+            "id": 4,
+            "name": "akshay",
+            "totalMarks": 65
+        },
+        {
+            "id": 5,
+            "name": "shubham",
+            "totalMarks": 65
+        }
+    ],
+    "pageNo": 0,
+    "pageSize": 5,
+    "totalElements": 47,
+    "totalPage": 10,
+    "last": false
+}
+
+...........................................................................................................................................
+To retrieve a specific number of records in descending order,
+you make a GET request to http://localhost:8080/api/students?pageNo=0&pageSize=10&sortBy&sortDir=Desc. 
+The response contains the requested number of student records in descending order.
+{
+    "totalMarks": [
+        {
+            "id": 47,
+            "name": "kinara",
+            "totalMarks": 95
+        },
+        {
+            "id": 46,
+            "name": "kinara",
+            "totalMarks": 95
+        },
+        {
+            "id": 45,
+            "name": "kinara capital",
+            "totalMarks": 95
+        },
+        {
+            "id": 44,
+            "name": "kinara capital",
+            "totalMarks": 95
+        },
+        {
+            "id": 43,
+            "name": "sam",
+            "totalMarks": 75
+        },
+        {
+            "id": 42,
+            "name": "harsh",
+            "totalMarks": 70
+        },
+        {
+            "id": 41,
+            "name": "kinaya",
+            "totalMarks": 95
+        },
+        {
+            "id": 40,
+            "name": "preet",
+            "totalMarks": 95
+        },
+        {
+            "id": 39,
+            "name": "avi",
+            "totalMarks": 73
+        },
+        {
+            "id": 38,
+            "name": "avinash",
+            "totalMarks": 79
+        }
+    ],
+    "pageNo": 0,
+    "pageSize": 10,
+    "totalElements": 47,
+    "totalPage": 5,
+    "last": false
+}
+.............................................................................................................................................
+I hope you understand my code and description
+Thank you
+Paragn
