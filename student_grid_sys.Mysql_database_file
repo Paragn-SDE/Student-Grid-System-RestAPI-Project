@@ -1,0 +1,21 @@
+create database schema with any name like this  "stud_grid_sys".
+The below code represents a SQL script for creating a database table named "students" and retrieving all rows from that table.
+
+CREATE TABLE students (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  total_marks INTEGER NOT NULL,
+  PRIMARY KEY (id)
+);
+SELECT * FROM students;
+
+
+Explanation here:
+The above sql script code represents the creation of a database table named "students" with three columns: "id", "name", and "total_marks". Here's a brief explanation:
+
+The "id" column is of type BIGINT and serves as the primary key for the table. It is set to automatically increment for each new record inserted into the table.
+The "name" column is of type VARCHAR(255), which means it can store a string of up to 255 characters. It is marked as NOT NULL, indicating that a value must be provided for this column.
+The "total_marks" column is of type INTEGER and represents the total marks obtained by a student. Similar to the "name" column, it is marked as NOT NULL.
+The SELECT statement SELECT * FROM students retrieves all rows from the "students" table, returning all columns (id, name, and total_marks) for each record.
+
+Overall, this database table is designed to store student information, including their ID, name, and total marks.
